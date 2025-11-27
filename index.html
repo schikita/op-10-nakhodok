@@ -77,9 +77,9 @@
           <p class="hero-description">
             Какие самые странные вещи у туристов изымала белорусская таможня?
           </p>
-          <button class="hero-cta">
+          <a href="#intro" class="hero-cta smooth-scroll">
             <span>СМОТРЕТЬ РЕПОРТАЖ</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -654,17 +654,9 @@
 
 
 
-
-
-
-
-
-
-
-
     <!-- SECTION 12: Редчайшая швейная машинка и бивни мамонта -->
     <section id="sec-12" class="section section-12 section-rarity section-rarity--machine">
-      
+
 
       <!-- Фоновый слайдер с выцветанием -->
       <div class="rarity-bg-slider" data-rarity-bg-slider>
@@ -698,30 +690,32 @@
         <article class="rarity-card">
           <div class="section-number rarity-number">01</div>
           <div class="section-label rarity-label">Раритеты</div>
-          <h2 class="section-title rarity-title">Редчайшая швейная машинка и книги XIX–XX веков</h2>
+          <h2 class="section-title rarity-title">Редчайшая швейная машинка</h2>
 
-          <p class="section-description rarity-lead">
-            Гродненские таможенники не допустили вывоз из Беларуси старинных книг и швейной
-            машинки, представляющих культурные ценности.
+
+          <p class="rarity-body-text">
+            Вывоз из Беларуси старинных книг и швейной машинки, представляющих культурные ценности, не допустили
+            гродненские таможенники. Незаконную попытку предпринял гражданин Германии в январе 2025-го, следуя в Литву
+            через пункт пропуска «Бенякони».
           </p>
 
           <p class="rarity-body-text">
-            Гражданин Германии в январе 2025 года следовал в Литву через пункт пропуска
-            «Бенякони». При осмотре личных вещей туриста инспекторы обнаружили
-            <strong>16 печатных изданий 1885–1922 годов выпуска</strong> и
-            <strong>швейную машинку 1904 года изготовления</strong>. Экспертиза Таможенной
-            лаборатории подтвердила, что все предметы относятся к категории культурных ценностей.
+            Осмотрев личные вещи туриста, гродненские таможенники обнаружили 16 печатных изданий 1885-1922 годов выпуска
+            и швейную машинку 1904 года изготовления. Эксперт Таможенной лаборатории подтвердил, что они относятся к
+            категории культурных ценностей.
           </p>
 
           <p class="rarity-body-text">
-            Этим же маршрутом в сторону Евросоюза следовал ещё один гражданин Германии.
-            В его легковом автомобиле сотрудники таможни обнаружили
-            <strong>восемь фрагментов бивня мамонта</strong>. Один из артефактов достигал почти
-            полуметра в длину. Как пояснил мужчина, необычный предмет он получил в подарок
-            от друга и собирался перевезти домой.
+            Еще один немец «отличился» этим летом на белорусско-польской границе. В его легковушке обнаружили восемь
+            фрагментов бивня мамонта. Один из артефактов достигал почти полуметра в длину.
           </p>
 
-          
+          <p class="split-story__note">
+            По словам мужчины, необычный предмет он получил в подарок от друга и хотел перевезти домой.
+          </p>
+
+
+
         </article>
       </div>
     </section>
@@ -730,10 +724,46 @@
 
     <!-- SECTION 13: Живописные картины, иконы и литография -->
     <section id="sec-13" class="section section-13 section-rarity section-rarity--art">
-      <div class="bg" style="background: radial-gradient(circle at 100% 0, #082f49 0%, #020617 55%, #020617 100%);">
+
+      <!-- ВЕРХНИЙ СЛАЙДЕР С ФОТО -->
+      <div class="rarity-slider-wrapper rarity-slider-wrapper--art">
+        <!-- Фоновые слайды -->
+        <div class="rarity-bg-slider" data-rarity-slider="art">
+          <div class="rarity-bg-slide is-active">
+            <img src="./assets/img/art/01.jpg" loading="lazy"
+              alt="Картины и иконы, изъятые на белорусско-польской границе" />
+          </div>
+          <div class="rarity-bg-slide">
+            <img src="./assets/img/art/02.jpg" loading="lazy"
+              alt="Статуэтка Самурай на лошади и другие культурные ценности" />
+          </div>
+           <div class="rarity-bg-slide">
+            <img src="./assets/img/art/03.jpg" loading="lazy"
+              alt="Статуэтка Самурай на лошади и другие культурные ценности" />
+          </div>
+        </div>
+
+        <!-- Градиентная вуаль поверх слайдов -->
+        <div class="bg" style="background: radial-gradient(circle at 100% 0, #082f49 0%, #020617 55%, #020617 100%);">
+        </div>
+
+        <!-- Кнопки переключения -->
+        <button class="rarity-bg-control rarity-bg-control--prev" type="button" aria-label="Предыдущий слайд">
+          ‹
+        </button>
+        <button class="rarity-bg-control rarity-bg-control--next" type="button" aria-label="Следующий слайд">
+          ›
+        </button>
+
+        <!-- Точки-индикаторы -->
+        <div class="rarity-bg-dots" aria-hidden="true">
+          <button class="rarity-bg-dot is-active" type="button" data-slide="0"></button>
+          <button class="rarity-bg-dot" type="button" data-slide="1"></button>
+        </div>
       </div>
 
-      <div class="content rarity-content rarity-content--reverse">
+      <!-- НИЖЕ — ТЕКСТОВОЙ БЛОК -->
+      <div class="content rarity-content rarity-content--single">
         <div class="rarity-text">
           <div class="section-number rarity-number">02</div>
           <div class="section-label rarity-label">Раритеты</div>
@@ -757,31 +787,14 @@
             лаборатории подтвердили, что всё это — культурные ценности.
           </p>
 
-          <p class="rarity-body-text">
+          <p class="split-story__note">
             Общая оценочная стоимость партии составила около
             <strong>85&nbsp;тысяч рублей</strong>.
           </p>
-
-          <ul class="rarity-list">
-            <li>Живописные полотна и портреты</li>
-            <li>Иконы и литография</li>
-            <li>Скульптура и предметы интерьера</li>
-          </ul>
-        </div>
-
-        <div class="rarity-media">
-          <figure class="rarity-media-inner rarity-media-inner--grid">
-            <img src="./assets/img/rarities/art-1.jpg" loading="lazy"
-              alt="Картины и иконы, изъятые на белорусско-польской границе" />
-            <img src="./assets/img/rarities/art-2.jpg" loading="lazy"
-              alt="Статуэтка Самурай на лошади и другие культурные ценности" />
-            <figcaption class="rarity-caption">
-              «Брест» • Коллекция картин, икон, литографии и статуэток, признанных культурными ценностями.
-            </figcaption>
-          </figure>
         </div>
       </div>
     </section>
+
 
 
     <!-- SECTION 14: Рукописная икона XIX века -->
