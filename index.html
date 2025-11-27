@@ -61,13 +61,16 @@
   <main id="main">
     <!-- SECTION 1: Hero -->
     <section id="home" class="section section-1 hero-section">
+      <!-- ФОН-ФОТО ЗА АНИМАЦИЕЙ -->
+      <div class="hero-bg-media">
+        <img src="./assets/img/first-collage.jpg" alt="" />
+      </div>
+
       <div class="bg" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"></div>
       <div id="particles-js"></div>
 
       <div class="content hero-content">
         <!-- Decorative light images -->
-
-
         <div class="hero-inner">
           <div class="hero-badge">ЖИВОЙ РЕПОРТАЖ</div>
           <h1 class="hero-title">
@@ -82,7 +85,6 @@
           </a>
         </div>
       </div>
-
 
       <div class="floating-shapes">
         <div class="shape shape-1"></div>
@@ -295,8 +297,22 @@
 
 
     <!-- SECTION 3: АВТОМОБИЛИ -->
-    <section id="sec-3" class="section section-3 section-3--cars">
-      <div class="bg section-3__bg"></div>
+    <!-- SECTION 3: АВТОМОБИЛИ -->
+<section id="sec-3" class="section section-3 section-3--cars">
+  <div class="bg section-3__bg">
+    <video
+      class="section-3__bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="./assets/img/slider-vertical/04.jpg"
+    >
+     
+      <source src="./assets/videos/zas.mp4" type="video/mp4" />
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
 
       <div class="content content--wide content--cars">
         <div class="section-number">02</div>
@@ -737,7 +753,7 @@
             <img src="./assets/img/art/02.jpg" loading="lazy"
               alt="Статуэтка Самурай на лошади и другие культурные ценности" />
           </div>
-           <div class="rarity-bg-slide">
+          <div class="rarity-bg-slide">
             <img src="./assets/img/art/03.jpg" loading="lazy"
               alt="Статуэтка Самурай на лошади и другие культурные ценности" />
           </div>
