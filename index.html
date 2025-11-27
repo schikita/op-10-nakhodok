@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Необычный топ-10 | ЖИВОЙ РЕПОРТАЖ</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+
+  <link rel="preload" href="./assets/fonts/golos-text_regular.woff2" as="style">
+  <link href="./assets/fonts/golos-text_regular.woff" rel="stylesheet">
+
+
+
+  <!-- Particles.js -->
+  <script src="./assets/js/particles.min.js"></script>
+  <script src="./assets/js/gsap.min.js"></script>
+  <script src="./assets/js/ScrollToPlugin.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header" id="header">
+    <div class="header-glow"></div>
+    <div class="container">
+      <div class="header-content">
+        <div class="header__left">
+          <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+            <span class="logo-text">SB.BY</span>
+          </a>
+        </div>
+
+
+        <nav class="nav" id="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#sec-2" class="nav-link">Животные</a></li>
+            <li class="nav-item"><a href="#sec-3" class="nav-link">Автомобили</a></li>
+            <li class="nav-item"><a href="#sec-6" class="nav-link">Драгоценности</a></li>
+            <li class="nav-item"><a href="#sec-12" class="nav-link">Раритеты</a></li>
+          </ul>
+
+          <img src="./assets/img/channels4_profile.jpg" alt="Таможенная эмблема" class="nav-logo">
+        </nav>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+
+        <div class="scroll-progress">
+          <div class="scroll-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- SECTION 1: Hero -->
+    <section id="home" class="section section-1 hero-section">
+      <div class="bg" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"></div>
+      <div id="particles-js"></div>
+
+      <div class="content hero-content">
+        <!-- Decorative light images -->
+
+
+        <div class="hero-inner">
+          <div class="hero-badge">ЖИВОЙ РЕПОРТАЖ</div>
+          <h1 class="hero-title">
+            <span class="title-line" data-text="Панорамное">Необычный</span>
+            <span class="title-line" data-text="Путешествие">ТОП-10</span>
+          </h1>
+          <p class="hero-description">
+            Какие самые странные вещи у туристов изымала белорусская таможня?
+          </p>
+          <button class="hero-cta">
+            <span>СМОТРЕТЬ РЕПОРТАЖ</span>
+          </button>
+        </div>
+      </div>
+
+
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+    </section>
+
+
+
+
+    <!-- INTRO / ЛИД + КАРУСЕЛЬ -->
+    <section id="intro" class="section section--intro">
+      <div class="container intro-container">
+        <div class="intro-inner">
+
+          <p class="intro-text">
+            Путешественники нередко пытаются незаконно ввезти в Беларусь или вывезти из неё деньги,
+            драгоценности и предметы роскоши. Но встречаются и совсем необычные экземпляры — они
+            искренне удивили даже нашу корреспондента
+            <a class="intro-author" href="https://www.sb.by/author/886502-inna-gorbatenko/" target="_blank"
+              rel="noopener noreferrer">
+              Инну Горбатенко
+            </a>,
+            а она повидала всякого! 10 самых необычных находок мы собрали в этом «Живом репортаже».
+          </p>
+        </div>
+
+        <!-- ОБЛАСТЬ КАРУСЕЛИ -->
+        <div class="intro-carousel">
+          <div class="carousel">
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Питоны</div>
+                <div class="num">01</div>
+                <img src="./assets/img/first-slide/01.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Спорткары</div>
+                <div class="num">02</div>
+                <img src="./assets/img/first-slide/02.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Культурные<br>ценности</div>
+                <div class="num">03</div>
+                <img src="./assets/img/first-slide/03.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Иконы</div>
+                <div class="num">04</div>
+                <img src="./assets/img/first-slide/04.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Лобстеры</div>
+                <div class="num">05</div>
+                <img src="./assets/img/first-slide/05.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Драгоценности</div>
+                <div class="num">06</div>
+                <img src="./assets/img/first-slide/06.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Коллекционная<br> посуда</div>
+                <div class="num">07</div>
+                <img src="./assets/img/first-slide/07.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Раритетные<br>авто</div>
+                <div class="num">08</div>
+                <img src="./assets/img/first-slide/08.jpg" />
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-box">
+                <div class="title">Янтарь</div>
+                <div class="num">09</div>
+                <img src="./assets/img/first-slide/09.jpg" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Вертикальный текст слева, как в оригинале -->
+          <div class="layout">
+            <div class="box">
+              Неожиданные<br />
+              находки<br />
+              на таможне
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- курсоры для эффекта -->
+      <div class="cursor"></div>
+      <div class="cursor cursor2"></div>
+    </section>
+
+
+
+
+
+    <!-- SECTION 2: НЕОБЫЧНЫЕ НАХОДКИ -->
+    <section id="sec-2" class="section section-2">
+      <div class="bg" style="background: linear-gradient(135deg, #041325 0%, #082c46 40%, #0b3a56 100%);"></div>
+      <div class="content content--wide">
+        <div class="section-number">01</div>
+        <div class="section-label">Животные</div>
+
+
+        <!-- ВЕРХНИЙ БЛОК: ПИТОНЫ (текст слева, фото справа) -->
+        <div class="split-story split-story--top">
+          <div class="split-story__text">
+            <h3 class="split-story__title">Королевские питоны</h3>
+
+            <p class="split-story__lead">
+              Тяжело, наверное, пришлось 19 королевским питонам, которых водитель спрятал в ступеньках своего автобуса,
+              чтобы незаконно ввезти из Польши в Беларусь. Дело было в пункте пропуска «Брест» в сентябре прошлого года.
+              При сканировании рейсового автобуса наши таможенники заметили нехарактерный отсек.
+            </p>
+
+            <p class="split-story__body">
+              Открутив саморезы на панели ступеньки, таможенники извлекли из тайника пять пластиковых контейнеров с
+              питонами. Вместе с животными под ступенькой водитель спрятал и шесть манометров весом в 40 килограммов.
+            </p>
+
+            <p class="split-story__body">
+              И это тот самый случай, когда молния ударила в одно место дважды. Через несколько месяцев в том же самом
+              тайнике того же самого автобуса, правда, с другим водителем брестские таможенники нашли еще 15 сетчатых
+              питонов.
+            </p>
+
+            <p class="split-story__note">
+              Со змеями всё в порядке: их передали в заботливые руки сотрудников Минского зоопарка.
+            </p>
+
+
+          </div>
+
+          <div class="split-story__media">
+            <div class="story-photo-slider story-photo-slider--pythons">
+              <!-- заменишь на свои картинки -->
+              <img src="./assets/img/pythons-1.jpg" alt="Королевский питон в контейнере" loading="lazy">
+              <img src="./assets/img/pythons-2.jpg" alt="Таможенный контроль автобуса" loading="lazy">
+              <img src="./assets/img/pythons-3.jpg" alt="Сотрудник таможни и контейнеры" loading="lazy">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- НИЖНИЙ БЛОК: ЛОБСТЕРЫ (фото слева, текст справа) -->
+        <div class="split-story split-story--bottom split-story--reverse">
+          <div class="split-story__text">
+            <h3 class="split-story__title">Лобстеры из Дубая</h3>
+
+            <p class="split-story__lead">
+              Гражданин России, прибывший в Национальный аэропорт «Минск» из Дубая со 120 килограммами живых лобстеров,
+              выбрал для пересечения таможенной границы зеленый коридор, который предназначен для следования с товарами,
+              не подлежащими декларированию.
+            </p>
+
+            <p class="split-story__body">
+              Оказалось, декларировать было что. В багаже россиянина минские таможенники обнаружили 120 килограммов
+              живых лобстеров. При этом для личного пользования разрешается ввозить до 5 килограммов такого рода товаров
+              и только при наличии ветеринарного сертификата, подтверждающего их безопасность.
+            </p>
+
+            <p class="split-story__note">
+              Стоимость лобстеров составила 29 тысяч рублей. Их передали ветеринарной службе.
+            </p>
+
+          </div>
+
+          <div class="split-story__media">
+            <div class="story-photo-slider story-photo-slider--lobsters">
+              <!-- заменишь на свои картинки -->
+              <img src="./assets/img/lobsters-1.jpg" alt="Живые лобстеры в контейнерах" loading="lazy">
+              <img src="./assets/img/lobsters-2.jpg" alt="Багажная лента в аэропорту" loading="lazy">
+              <img src="./assets/img/lobsters-3.jpg" alt="Таможенный досмотр багажа" loading="lazy">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="parallax-element parallax-1"></div>
+    </section>
+
+
+    <!-- SECTION 3: АВТОМОБИЛИ -->
+    <section id="sec-3" class="section section-3 section-3--cars">
+      <div class="bg section-3__bg"></div>
+
+      <div class="content content--wide content--cars">
+        <div class="section-number">02</div>
+        <div class="section-label">Автомобили</div>
+
+
+        <div class="cars-layout">
+          <!-- ЛЕВАЯ КОЛОНКА: ТЕКСТ -->
+          <div class="cars-text">
+            <!-- ЗИС-110 -->
+            <article class="car-story">
+              <h3 class="split-story__title">«ЗИС-110» как культурная ценность</h3>
+
+              <p class="car-story__lead">
+                Автомобиль «ЗИС&nbsp;110», выпущенный в 1947 году, попытались вывезти из Беларуси без необходимых
+                документов.
+                За рулём был гражданин России, направлявшийся в Литву через зелёный коридор, тем самым подтвердив
+                отсутствие
+                товаров, подлежащих обязательному декларированию.
+              </p>
+
+              <p class="car-story__body">
+                При таможенном контроле инспекторы обратили внимание на год выпуска, указанный в техпаспорте.
+                Транспортные средства, произведённые до 1&nbsp;января 1951&nbsp;года, относятся к категории культурных
+                ценностей
+                и требуют особого порядка вывоза.
+              </p>
+
+              <p class="split-story__note">
+                Стоимость незадекларированного раритета оценили примерно в
+                <strong>610&nbsp;тысяч рублей</strong>.
+              </p>
+
+
+            </article>
+
+            <!-- Porsche 911 -->
+            <article class="car-story">
+
+              <h3 class="split-story__title">Porsche 911</h3>
+
+              <p class="car-story__lead">
+                Премиальный автомобиль <strong>Porsche&nbsp;911</strong> стоимостью свыше
+                <strong>710&nbsp;тысяч рублей</strong> везла на территорию ЕАЭС через белорусско-литовскую границу
+                транспортная компания из Польши.
+              </p>
+
+              <p class="car-story__body">
+                Гродненские таможенники установили, что в сопроводительных документах была указана стоимость
+                около <strong>345&nbsp;тысяч рублей</strong>, то есть почти вдвое ниже реальной. Такая схема
+                используется
+                для снижения налоговых и таможенных платежей.
+              </p>
+
+              <p class="split-story__note">
+                Расхождение в цене стало основанием для дополнительной проверки и разбирательства по факту
+                недостоверного
+                декларирования.
+              </p>
+
+            </article>
+          </div>
+
+          <!-- ПРАВАЯ КОЛОНКА: ВЕРТИКАЛЬНЫЙ СЛАЙДЕР -->
+          <div class="cars-media">
+            <div class="cars-vertical" id="carsVertical">
+              <ul class="cars-vertical__list">
+                <!-- Слайд 1 -->
+                <li class="cars-vertical__item">
+                  <article class="cars-card">
+                    <div class="cars-card__image" style="background-image: url('./assets/img/slider-vertical/04.jpg');">
+                      <div class="cars-card__gradient"></div>
+                    </div>
+                    <div class="cars-card__content">
+                      <h4 class="cars-card__title">ЗИС-110</h4>
+                      <p class="cars-card__subtitle"></p>
+                    </div>
+                  </article>
+                </li>
+
+                <!-- Слайд 2 -->
+                <li class="cars-vertical__item">
+                  <article class="cars-card">
+                    <div class="cars-card__image" style="background-image: url('./assets/img/slider-vertical/05.jpg');">
+                      <div class="cars-card__gradient"></div>
+                    </div>
+                    <div class="cars-card__content">
+                      <h4 class="cars-card__title">ЗИС-110</h4>
+                      <p class="cars-card__subtitle"></p>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="cars-vertical__item">
+                  <article class="cars-card">
+                    <div class="cars-card__image" style="background-image: url('./assets/img/slider-vertical/06.jpg');">
+                      <div class="cars-card__gradient"></div>
+                    </div>
+                    <div class="cars-card__content">
+                      <h4 class="cars-card__title">ЗИС-110</h4>
+                      <p class="cars-card__subtitle"></p>
+                    </div>
+                  </article>
+                </li>
+
+                <!-- Слайд 3 -->
+                <li class="cars-vertical__item">
+                  <article class="cars-card">
+                    <div class="cars-card__image" style="background-image: url('./assets/img/slider-vertical/01.jpg');">
+                      <div class="cars-card__gradient"></div>
+                    </div>
+                    <div class="cars-card__content">
+                      <h4 class="cars-card__title">Porsche 911</h4>
+                      <p class="cars-card__subtitle"></p>
+                    </div>
+                  </article>
+                </li>
+                <li class="cars-vertical__item">
+                  <article class="cars-card">
+                    <div class="cars-card__image" style="background-image: url('./assets/img/slider-vertical/02.jpg');">
+                      <div class="cars-card__gradient"></div>
+                    </div>
+                    <div class="cars-card__content">
+                      <h4 class="cars-card__title">Porsche 911</h4>
+                      <p class="cars-card__subtitle"></p>
+                    </div>
+                  </article>
+                </li>
+                <li class="cars-vertical__item">
+                  <article class="cars-card">
+                    <div class="cars-card__image" style="background-image: url('./assets/img/slider-vertical/03.jpg');">
+                      <div class="cars-card__gradient"></div>
+                    </div>
+                    <div class="cars-card__content">
+                      <h4 class="cars-card__title">Porsche 911</h4>
+                      <p class="cars-card__subtitle"></p>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="parallax-element parallax-2"></div>
+    </section>
+
+
+
+    <!-- SECTION 4: Драгоценности -->
+    <section id="sec-4" class="section section-4 section-jewels">
+      <div class="bg" style="background: linear-gradient(135deg, #24133e 0%, #14233d 100%);"></div>
+
+      <div class="content jewels-content">
+        <div class="section-number">03</div>
+        <div class="section-label">Драгоценности</div>
+
+        <div class="jewels-grid">
+          <!-- Карта 1: посуда -->
+          <article class="jewel-card">
+            <div class="jewel-media jewel-media--slider">
+              <div class="jewel-slider" data-jewel-slider>
+                <!-- Слайд 1 -->
+                <button class="jewel-slide is-active" type="button" data-jewel-full="./assets/img/jewels-dishes-1.jpg"
+                  data-jewel-caption="Эксклюзивная посуда: кадр 1">
+                  <img src="./assets/img/kozlovichi/01.jpg" loading="lazy"
+                    alt="Коробки с эксклюзивной посудой известных брендов" />
+                </button>
+
+                <!-- Слайд 2 -->
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-dishes-2.jpg"
+                  data-jewel-caption="Эксклюзивная посуда: кадр 2">
+                  <img src="./assets/img/kozlovichi/02.jpg" loading="lazy"
+                    alt="Ящики с эксклюзивной посудой в грузовом отсеке" />
+                </button>
+
+                <!-- Слайд 3 -->
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-dishes-3.jpg"
+                  data-jewel-caption="Эксклюзивная посуда: кадр 3">
+                  <img src="./assets/img/kozlovichi/03.jpg" loading="lazy"
+                    alt="Крупный план маркировки на коробках с посудой" />
+                </button>
+
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-dishes-3.jpg"
+                  data-jewel-caption="Эксклюзивная посуда: кадр 3">
+                  <img src="./assets/img/kozlovichi/04.jpg" loading="lazy"
+                    alt="Крупный план маркировки на коробках с посудой" />
+                </button>
+
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-dishes-3.jpg"
+                  data-jewel-caption="Эксклюзивная посуда: кадр 3">
+                  <img src="./assets/img/kozlovichi/05.jpg" loading="lazy"
+                    alt="Крупный план маркировки на коробках с посудой" />
+                </button>
+
+
+              </div>
+
+              <button class="jewel-slider-control jewel-slider-control--prev" type="button" aria-label="Предыдущее фото"
+                data-jewel-prev>
+                ‹
+              </button>
+              <button class="jewel-slider-control jewel-slider-control--next" type="button" aria-label="Следующее фото"
+                data-jewel-next>
+                ›
+              </button>
+
+              <div class="jewel-slider-dots" data-jewel-dots></div>
+
+              <span class="jewel-media-badge">Фото из дела • Козловичи</span>
+            </div>
+
+            <div class="jewel-body">
+              <h3 class="jewel-title">Эксклюзивная посуда на 1,3 миллиона</h3>
+              <p class="jewel-text">
+                Польский перевозчик пытался незаконно ввезти из Чехии на территорию ЕАЭС партию
+                эксклюзивной посуды известных брендов, занизив её стоимость в 30 раз. Инцидент произошёл
+                в марте 2023 года в пункте пропуска «Козловичи».
+              </p>
+              <p class="split-story__note">
+                Таможенники установили, что реальная стоимость посуды составляет около
+                <strong>1,3 миллиона рублей</strong>.
+              </p>
+            </div>
+          </article>
+
+          <!-- Карта 2: янтарь -->
+          <article class="jewel-card">
+            <div class="jewel-media jewel-media--slider">
+              <div class="jewel-slider" data-jewel-slider>
+                <!-- Слайд 1 -->
+                <button class="jewel-slide is-active" type="button" data-jewel-full="./assets/img/jewels-amber-1.jpg"
+                  data-jewel-caption="Четыре килограмма янтаря: кадр 1">
+                  <img src="./assets/img/jantar/01.jpg" loading="lazy" alt="Крупные куски янтаря и изделия из него" />
+                </button>
+
+                <!-- Слайд 2 -->
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-amber-2.jpg"
+                  data-jewel-caption="Четыре килограмма янтаря: кадр 2">
+                  <img src="./assets/img/jantar/02.jpg" loading="lazy" alt="Свёртки с янтарём, изъятые из автомобиля" />
+                </button>
+
+                <!-- Слайд 3 -->
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-amber-3.jpg"
+                  data-jewel-caption="Четыре килограмма янтаря: кадр 3">
+                  <img src="./assets/img/jantar/03.jpg" loading="lazy"
+                    alt="Янтарь природного происхождения крупным планом" />
+                </button>
+              </div>
+
+              <button class="jewel-slider-control jewel-slider-control--prev" type="button" aria-label="Предыдущее фото"
+                data-jewel-prev>
+                ‹
+              </button>
+              <button class="jewel-slider-control jewel-slider-control--next" type="button" aria-label="Следующее фото"
+                data-jewel-next>
+                ›
+              </button>
+
+              <div class="jewel-slider-dots" data-jewel-dots></div>
+
+              <span class="jewel-media-badge">4 кг янтаря</span>
+            </div>
+
+            <div class="jewel-body">
+              <h3 class="jewel-title">Четыре килограмма янтаря</h3>
+              <p class="jewel-text">
+                Водитель легкового автомобиля, следовавший из Литвы, выбрал красный коридор и задекларировал
+                только денежные средства. При осмотре машины под декоративной обшивкой крышки багажника
+                инспекторы обнаружили две трубки цилиндрической формы и пять свёртков с камнями жёлтого цвета.
+              </p>
+              <p class="split-story__note">
+                Внутри оказался обработанный и необработанный янтарь природного происхождения, а также
+                изделия из него. Общая стоимость находки составила около
+                <strong>26&nbsp;тысяч рублей</strong>.
+              </p>
+            </div>
+          </article>
+
+          <!-- Карта 3: ожерелье -->
+          <article class="jewel-card">
+            <div class="jewel-media jewel-media--slider">
+              <div class="jewel-slider" data-jewel-slider>
+                <!-- Слайд 1 -->
+                <button class="jewel-slide is-active" type="button" data-jewel-full="./assets/img/jewels-necklace-1.jpg"
+                  data-jewel-caption="Платиновое ожерелье с бриллиантами: кадр 1">
+                  <img src="./assets/img/platinum/01.jpg" loading="lazy"
+                    alt="Платиновое ожерелье с бриллиантами и фиолетовой шпинелью" />
+                </button>
+
+                <!-- Слайд 2 -->
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-necklace-2.jpg"
+                  data-jewel-caption="Платиновое ожерелье: кадр 2">
+                  <img src="./assets/img/platinum/02.jpg" loading="lazy"
+                    alt="Ожерелье в коробке, изъятое таможенниками" />
+                </button>
+
+                <!-- Слайд 3 -->
+                <button class="jewel-slide" type="button" data-jewel-full="./assets/img/jewels-necklace-3.jpg"
+                  data-jewel-caption="Платиновое ожерелье: кадр 3">
+                  <img src="./assets/img/platinum/03.jpg" loading="lazy"
+                    alt="Крупный план вставок бриллиантов и фиолетовой шпинели" />
+                </button>
+              </div>
+
+              <button class="jewel-slider-control jewel-slider-control--prev" type="button" aria-label="Предыдущее фото"
+                data-jewel-prev>
+                ‹
+              </button>
+              <button class="jewel-slider-control jewel-slider-control--next" type="button" aria-label="Следующее фото"
+                data-jewel-next>
+                ›
+              </button>
+
+              <div class="jewel-slider-dots" data-jewel-dots></div>
+
+              <span class="jewel-media-badge">Платиновое ожерелье</span>
+            </div>
+
+            <div class="jewel-body">
+              <h3 class="jewel-title">Платиновое ожерелье с драгоценными камнями</h3>
+              <p class="jewel-text">
+                Гражданин Молдовы спрятал платиновое ожерелье с драгоценными камнями, пытаясь незаконно
+                ввезти его из Литвы в Беларусь в мае 2025 года. Во время досмотра багажа гродненские
+                таможенники обнаружили бумажный свёрток, оклеенный скотчем, внутри которого и находилось украшение.
+              </p>
+              <p class="split-story__note">
+                Экспертиза показала, что ожерелье изготовлено из платины, а вставки — это бриллианты и
+                фиолетовая шпинель. Стоимость драгоценности составила около
+                <strong>420&nbsp;тысяч рублей</strong>.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="parallax-element parallax-3"></div>
+    </section>
+
+
+    <!-- Модальное окно для фотографий драгоценностей -->
+    <div id="jewel-modal" class="jewel-modal" aria-hidden="true">
+      <div class="jewel-modal-backdrop" data-jewel-close></div>
+      <div class="jewel-modal-dialog" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+        <button class="jewel-modal-close" type="button" aria-label="Закрыть" data-jewel-close>
+          ✕
+        </button>
+        <img src="" alt="" class="jewel-modal-image" />
+        <div class="jewel-modal-caption"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- SECTION 12: Редчайшая швейная машинка и бивни мамонта -->
+    <section id="sec-12" class="section section-12 section-rarity section-rarity--machine">
+      
+
+      <!-- Фоновый слайдер с выцветанием -->
+      <div class="rarity-bg-slider" data-rarity-bg-slider>
+        <div class="rarity-bg-slide is-active">
+          <img src="./assets/img/books/01.jpg" loading="lazy"
+            alt="Старинная швейная машинка и книги на столе в багаже туриста" />
+        </div>
+        <div class="rarity-bg-slide">
+          <img src="./assets/img/books/02.jpg" loading="lazy"
+            alt="Коробка со старинными книгами, задержанными на границе" />
+        </div>
+        <div class="rarity-bg-slide">
+          <img src="./assets/img/books/03.jpg" loading="lazy"
+            alt="Фрагменты бивня мамонта, изъятые у туриста на таможне" />
+        </div>
+
+        <!-- Кнопки переключения слайдов -->
+        <button class="rarity-bg-control rarity-bg-control--prev" type="button" aria-label="Предыдущее фото">
+          ‹
+        </button>
+        <button class="rarity-bg-control rarity-bg-control--next" type="button" aria-label="Следующее фото">
+          ›
+        </button>
+
+        <!-- Точки-состояния -->
+        <div class="rarity-bg-dots" data-rarity-bg-dots></div>
+      </div>
+
+      <!-- Контент: компактная карточка справа внизу -->
+      <div class="content rarity-content rarity-content--hero">
+        <article class="rarity-card">
+          <div class="section-number rarity-number">01</div>
+          <div class="section-label rarity-label">Раритеты</div>
+          <h2 class="section-title rarity-title">Редчайшая швейная машинка и книги XIX–XX веков</h2>
+
+          <p class="section-description rarity-lead">
+            Гродненские таможенники не допустили вывоз из Беларуси старинных книг и швейной
+            машинки, представляющих культурные ценности.
+          </p>
+
+          <p class="rarity-body-text">
+            Гражданин Германии в январе 2025 года следовал в Литву через пункт пропуска
+            «Бенякони». При осмотре личных вещей туриста инспекторы обнаружили
+            <strong>16 печатных изданий 1885–1922 годов выпуска</strong> и
+            <strong>швейную машинку 1904 года изготовления</strong>. Экспертиза Таможенной
+            лаборатории подтвердила, что все предметы относятся к категории культурных ценностей.
+          </p>
+
+          <p class="rarity-body-text">
+            Этим же маршрутом в сторону Евросоюза следовал ещё один гражданин Германии.
+            В его легковом автомобиле сотрудники таможни обнаружили
+            <strong>восемь фрагментов бивня мамонта</strong>. Один из артефактов достигал почти
+            полуметра в длину. Как пояснил мужчина, необычный предмет он получил в подарок
+            от друга и собирался перевезти домой.
+          </p>
+
+          
+        </article>
+      </div>
+    </section>
+
+
+
+    <!-- SECTION 13: Живописные картины, иконы и литография -->
+    <section id="sec-13" class="section section-13 section-rarity section-rarity--art">
+      <div class="bg" style="background: radial-gradient(circle at 100% 0, #082f49 0%, #020617 55%, #020617 100%);">
+      </div>
+
+      <div class="content rarity-content rarity-content--reverse">
+        <div class="rarity-text">
+          <div class="section-number rarity-number">02</div>
+          <div class="section-label rarity-label">Раритеты</div>
+          <h2 class="section-title rarity-title">Живописные картины, иконы и литография</h2>
+
+          <p class="section-description rarity-lead">
+            Целая коллекция культурных ценностей пыталась пересечь границу под видом обычного багажа.
+          </p>
+
+          <p class="rarity-body-text">
+            Граждане Беларуси намеревались незаконно ввезти культурные ценности из Польши
+            через пункт пропуска «Брест» на территорию ЕАЭС. По просьбе третьих лиц они
+            перемещали предметы под видом товаров для личного пользования.
+          </p>
+
+          <p class="rarity-body-text">
+            В автомобиле водителя таможенники обнаружили
+            <strong>24 единицы</strong>: портреты, живописные картины, иконы, литографию,
+            эскизы, каминные часы, подсвечники, статуэтки и другие предметы. Его пассажирка
+            перевозила статуэтку <strong>«Самурай на лошади»</strong>. Эксперты Таможенной
+            лаборатории подтвердили, что всё это — культурные ценности.
+          </p>
+
+          <p class="rarity-body-text">
+            Общая оценочная стоимость партии составила около
+            <strong>85&nbsp;тысяч рублей</strong>.
+          </p>
+
+          <ul class="rarity-list">
+            <li>Живописные полотна и портреты</li>
+            <li>Иконы и литография</li>
+            <li>Скульптура и предметы интерьера</li>
+          </ul>
+        </div>
+
+        <div class="rarity-media">
+          <figure class="rarity-media-inner rarity-media-inner--grid">
+            <img src="./assets/img/rarities/art-1.jpg" loading="lazy"
+              alt="Картины и иконы, изъятые на белорусско-польской границе" />
+            <img src="./assets/img/rarities/art-2.jpg" loading="lazy"
+              alt="Статуэтка Самурай на лошади и другие культурные ценности" />
+            <figcaption class="rarity-caption">
+              «Брест» • Коллекция картин, икон, литографии и статуэток, признанных культурными ценностями.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 14: Рукописная икона XIX века -->
+    <section id="sec-14" class="section section-14 section-rarity section-rarity--icon">
+      <div class="bg" style="background: radial-gradient(circle at 50% 0, #7c2d12 0%, #020617 55%, #020617 100%);">
+      </div>
+
+      <div class="content rarity-content rarity-content--centered">
+        <div class="rarity-icon-card">
+          <div class="section-number rarity-number">03</div>
+          <div class="section-label rarity-label">Раритеты</div>
+
+          <h2 class="section-title rarity-title">Рукописная икона XIX века</h2>
+
+          <p class="section-description rarity-lead">
+            Одна икона — целая эпоха. Таможенный контроль в «Бресте» поставил точку в
+            попытке её скрытого ввоза.
+          </p>
+
+          <p class="rarity-body-text">
+            Гражданин Беларуси пытался незаконно ввезти в страну рукописную икону с
+            изображением <strong>Богоматери Феодоровской</strong>, созданную в XIX веке
+            в Российской империи. Культурную ценность обнаружили при пересечении границы
+            в пункте пропуска «Брест».
+          </p>
+
+          <p class="rarity-body-text">
+            Эксперты установили, что икона представляет значительную историческую и художественную
+            ценность. Её стоимость оценена более чем в
+            <strong>6&nbsp;тысяч рублей</strong>. Предмет был изъят и взят под охрану.
+          </p>
+
+          <div class="rarity-media rarity-media--icon">
+            <figure class="rarity-media-inner">
+              <img src="./assets/img/rarities/icon-feodorovskaya.jpg" loading="lazy"
+                alt="Рукописная икона Богоматери Феодоровской XIX века" />
+              <figcaption class="rarity-caption">
+                «Брест» • Рукописная икона Богоматери Феодоровской XIX века, признанная культурной ценностью.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <button id="backToTop" class="back-to-top" aria-label="Наверх">
+    <svg class="back-to-top-icon" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M7.41,15.41L12,10.83l4.59,4.58L18,14l-6-6l-6,6L7.41,15.41z" />
+    </svg>
+
+    <span class="back-to-top-circle-1"></span>
+    <span class="back-to-top-circle-2"></span>
+
+    <div class="back-to-top-text"></div>
+  </button>
+
+  <!-- GSAP (одна версия, все плагины) -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
