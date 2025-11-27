@@ -572,7 +572,7 @@ function initGsapAnimations() {
   initJewelSliders();
 
   // ===================================================================
-  // ===================== JEWELS MODAL (SEC-4) ========================
+  // ✅ ИСПРАВЛЕННОЕ МОДАЛЬНОЕ ОКНО ДРАГОЦЕННОСТЕЙ (SEC-4) ============
   // ===================================================================
 
   const jewelModal = document.getElementById("jewelModal");
@@ -582,6 +582,8 @@ function initGsapAnimations() {
     const jewelCaption = jewelModal.querySelector(".jewel-modal__caption");
     const prevBtn = jewelModal.querySelector("[data-jewel-modal-prev]");
     const nextBtn = jewelModal.querySelector("[data-jewel-modal-next]");
+    const closeBtn = jewelModal.querySelector("[data-jewel-modal-close]");
+    const backdrop = jewelModal.querySelector(".jewel-modal__backdrop");
 
     let currentModalIndex = 0;
     let currentModalSlides = [];
@@ -591,11 +593,13 @@ function initGsapAnimations() {
       currentModalIndex = startIndex;
       showModalSlide(currentModalIndex);
       jewelModal.classList.add("is-open");
+      jewelModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
     };
 
     const closeJewelModal = () => {
       jewelModal.classList.remove("is-open");
+      jewelModal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
     };
 
@@ -624,23 +628,24 @@ function initGsapAnimations() {
     });
 
     // Закрытие модального окна
-    jewelModal
-      .querySelector("[data-jewel-modal-close]")
-      ?.addEventListener("click", closeJewelModal);
+    closeBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeJewelModal();
+    });
 
-    jewelModal
-      .querySelector(".jewel-modal__backdrop")
-      ?.addEventListener("click", closeJewelModal);
+    backdrop?.addEventListener("click", closeJewelModal);
 
-    // Навигация в модальном окне
-    prevBtn?.addEventListener("click", () => {
+    // Навигация в модальном окне (prev/next)
+    prevBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
       currentModalIndex =
         (currentModalIndex - 1 + currentModalSlides.length) %
         currentModalSlides.length;
       showModalSlide(currentModalIndex);
     });
 
-    nextBtn?.addEventListener("click", () => {
+    nextBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
       currentModalIndex =
         (currentModalIndex + 1) % currentModalSlides.length;
       showModalSlide(currentModalIndex);
@@ -652,6 +657,8 @@ function initGsapAnimations() {
         closeJewelModal();
       }
     });
+
+    console.log("✅ Jewel modal initialized correctly");
   }
 
   console.log("✨ Panoramic Reportage — loaded successfully");
@@ -726,6 +733,10 @@ function initJewelSliders() {
   });
 }
 
+// =======================================================================
+// ===================== RARITY BG SLIDER ================================
+// =======================================================================
+
 document.addEventListener("DOMContentLoaded", () => {
   const sliders = document.querySelectorAll("[data-rarity-bg-slider]");
 
@@ -787,4 +798,139 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+});
+
+// =======================================================================
+// ===================== RARITY SLIDER (CARDS) ==========================
+// =======================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll("[data-rarity-slider]");
+
+  sliders.forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll(".rarity-slider__slide"));
+    const dots = Array.from(slider.querySelectorAll(".rarity-slider__dot"));
+    const prevBtn = slider.querySelector(".rarity-slider__control--prev");
+    const nextBtn = slider.querySelector(".rarity-slider__control--next");
+
+    if (!slides.length) return;
+
+    let current = 0;
+
+    const goTo = (index) => {
+      const total = slides.length;
+      const newIndex = (index + total) % total;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === newIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === newIndex);
+      });
+
+      current = newIndex;
+    };
+
+    prevBtn?.addEventListener("click", () => goTo(current - 1));
+    nextBtn?.addEventListener("click", () => goTo(current + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const idx = Number(dot.dataset.slide || 0);
+        goTo(idx);
+      });
+    });
+
+    // стартовое состояние
+    goTo(0);
+  });
+});
+
+// =======================================================================
+// ===================== RARITY NAV (SLIDER NAVIGATION) =================
+// =======================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Находим все кнопки навигации раритетов
+  const navItems = document.querySelectorAll(".rarity-nav-item");
+  const slides = document.querySelectorAll(".rarity-slide");
+
+  if (!navItems.length || !slides.length) return;
+
+  navItems.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = Number(btn.dataset.index);
+
+      // Обновляем активный класс на кнопке навигации
+      navItems.forEach((item) => item.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      // Обновляем активный слайд
+      slides.forEach((slide) => slide.classList.remove("rarity-slide--active"));
+      const activeSlide = document.querySelector(
+        `.rarity-slide[data-index="${index}"]`
+      );
+      if (activeSlide) {
+        activeSlide.classList.add("rarity-slide--active");
+      }
+    });
+  });
+
+  // Установить начальное состояние
+  if (navItems[0]) navItems[0].classList.add("is-active");
+  if (slides[0]) slides[0].classList.add("rarity-slide--active");
+});
+
+// ===== PAINTINGS SLIDER (ПРОСТОЙ) =====
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector("[data-paintings-slider]");
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll(".paintings-slider-slide"));
+  const dots = Array.from(slider.querySelectorAll(".paintings-dot"));
+  const prevBtn = slider.querySelector("[data-paintings-prev]");
+  const nextBtn = slider.querySelector("[data-paintings-next]");
+
+  let current = 0;
+
+  const goTo = (index) => {
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === current);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === current);
+    });
+  };
+
+  prevBtn?.addEventListener("click", () => goTo(current - 1));
+  nextBtn?.addEventListener("click", () => goTo(current + 1));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => goTo(i));
+  });
+
+  // Стрелки клавиатуры
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") goTo(current - 1);
+    if (e.key === "ArrowRight") goTo(current + 1);
+  });
+
+  // Свайп на мобильных
+  let touchStart = 0;
+  slider.addEventListener("touchstart", (e) => {
+    touchStart = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    const touchEnd = e.changedTouches[0].clientX;
+    if (touchStart - touchEnd > 50) goTo(current + 1);
+    if (touchEnd - touchStart > 50) goTo(current - 1);
+  });
+
+  console.log("✅ Paintings slider initialized");
 });
