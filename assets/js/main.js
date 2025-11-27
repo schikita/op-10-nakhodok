@@ -2,6 +2,11 @@
 // ===================== HEADER & NAVIGATION ==============================
 // =======================================================================
 
+function supportsIO() {
+  return 'IntersectionObserver' in window;
+}
+
+
 gsap.registerPlugin(
   window.ScrollTrigger || undefined,
   window.TextPlugin || undefined,
