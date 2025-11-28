@@ -6,7 +6,6 @@ function supportsIO() {
   return 'IntersectionObserver' in window;
 }
 
-
 gsap.registerPlugin(
   window.ScrollTrigger || undefined,
   window.TextPlugin || undefined,
@@ -73,31 +72,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===== Entrance animations (логотип, меню, соцсети) =====
-  gsap.from(".logo", {
-    x: -50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out",
-    delay: 0.2,
-  });
+  const logoEl = document.querySelector(".logo");
+  if (logoEl) {
+    gsap.from(logoEl, {
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+  }
 
-  gsap.from(".nav-item", {
-    y: -30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: "power3.out",
-    delay: 0.5,
-  });
+  const navItems = document.querySelectorAll(".nav-item");
+  if (navItems.length) {
+    gsap.from(navItems, {
+      y: -30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power3.out",
+      delay: 0.5,
+    });
+  }
 
-  gsap.from(".social-link", {
-    scale: 0,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: "back.out(1.7)",
-    delay: 1,
-  });
+  const socialLinks = document.querySelectorAll(".social-link");
+  if (socialLinks.length) {
+    gsap.from(socialLinks, {
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "back.out(1.7)",
+      delay: 1,
+    });
+  }
 
   // ===== Magnetic nav links =====
   navLinks.forEach((link) => {
@@ -120,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         x: 0,
         y: 0,
         duration: 0.5,
-        ease: "elastic.out(1,0.3)",
+        ease: "elastic.out(1, 0.3)",
       });
     });
   });
@@ -218,22 +226,54 @@ window.addEventListener("load", () => {
 
 function initGsapAnimations() {
   // ===== HERO entrance (однократная, без ScrollTrigger) =====
-  const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  const heroBadge = document.querySelector(".hero-badge");
+  const titleLines = document.querySelectorAll(".title-line");
+  const heroDescription = document.querySelector(".hero-description");
+  const heroStatsEl = document.querySelector(".hero-stats");
+  const heroCta = document.querySelector(".hero-cta");
 
-  heroTl
-    .from(".hero-badge", { y: -50, opacity: 0, duration: 1, delay: 0.3 })
-    .from(
-      ".title-line",
-      { y: 100, opacity: 0, duration: 1, stagger: 0.2 },
-      "-=0.6"
-    )
-    .from(".hero-description", { y: 50, opacity: 0, duration: 1 }, "-=0.5")
-    .from(
-      ".hero-stats",
-      { y: 50, opacity: 0, scale: 0.9, duration: 1 },
-      "-=0.5"
-    )
-    .from(".hero-cta", { y: 30, opacity: 0, duration: 0.8 }, "-=0.3");
+  const hasHero =
+    heroBadge || titleLines.length || heroDescription || heroStatsEl || heroCta;
+
+  if (hasHero) {
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    if (heroBadge) {
+      heroTl.from(heroBadge, { y: -50, opacity: 0, duration: 1, delay: 0.3 });
+    }
+
+    if (titleLines.length) {
+      heroTl.from(
+        titleLines,
+        { y: 100, opacity: 0, duration: 1, stagger: 0.2 },
+        "-=0.6"
+      );
+    }
+
+    if (heroDescription) {
+      heroTl.from(
+        heroDescription,
+        { y: 50, opacity: 0, duration: 1 },
+        "-=0.5"
+      );
+    }
+
+    if (heroStatsEl) {
+      heroTl.from(
+        heroStatsEl,
+        { y: 50, opacity: 0, scale: 0.9, duration: 1 },
+        "-=0.5"
+      );
+    }
+
+    if (heroCta) {
+      heroTl.from(
+        heroCta,
+        { y: 30, opacity: 0, duration: 0.8 },
+        "-=0.3"
+      );
+    }
+  }
 
   // ===== Animated counters (hero + финал) =====
   document
@@ -248,7 +288,7 @@ function initGsapAnimations() {
         ease: "power2.out",
         delay: 1.2,
         onUpdate: function () {
-          el.innerText = Math.ceil(el.innerText);
+          el.innerText = Math.ceil(+el.innerText || 0);
         },
       });
     });
@@ -308,8 +348,9 @@ function initGsapAnimations() {
   // ===================== HERO SCROLL-ИНДИКАТОР =======================
   // ===================================================================
 
-  if (document.querySelector(".scroll-indicator")) {
-    gsap.to(".scroll-indicator", {
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+  if (scrollIndicator) {
+    gsap.to(scrollIndicator, {
       y: 12,
       duration: 1.5,
       repeat: -1,
@@ -323,36 +364,49 @@ function initGsapAnimations() {
   // ===================================================================
 
   const heroSection = document.querySelector(".hero-section");
-  if (heroSection) {
+  const heroTitle = document.querySelector(".hero-title");
+  const heroStats = document.querySelector(".hero-stats");
+
+  if (heroSection && (heroTitle || heroStats)) {
     heroSection.addEventListener("mousemove", (e) => {
       const rect = heroSection.getBoundingClientRect();
       const relX = (e.clientX - rect.left) / rect.width - 0.5;
       const relY = (e.clientY - rect.top) / rect.height - 0.5;
 
-      gsap.to(".hero-title", {
-        x: relX * 30,
-        y: relY * 20,
-        duration: 0.4,
-        ease: "power2.out",
-        overwrite: false,
-      });
+      if (heroTitle) {
+        gsap.to(heroTitle, {
+          x: relX * 30,
+          y: relY * 20,
+          duration: 0.4,
+          ease: "power2.out",
+          overwrite: false,
+        });
+      }
 
-      gsap.to(".hero-stats", {
-        x: relX * -20,
-        y: relY * -15,
-        duration: 0.4,
-        ease: "power2.out",
-        overwrite: false,
-      });
+      if (heroStats) {
+        gsap.to(heroStats, {
+          x: relX * -20,
+          y: relY * -15,
+          duration: 0.4,
+          ease: "power2.out",
+          overwrite: false,
+        });
+      }
     });
 
     heroSection.addEventListener("mouseleave", () => {
-      gsap.to([".hero-title", ".hero-stats"], {
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out",
-      });
+      const targets = [];
+      if (heroTitle) targets.push(heroTitle);
+      if (heroStats) targets.push(heroStats);
+
+      if (targets.length) {
+        gsap.to(targets, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
     });
   }
 
@@ -369,12 +423,14 @@ function initGsapAnimations() {
       const y = e.clientY - rect.top - size / 2;
 
       ripple.style.cssText = `
-                position:absolute;width:${size}px;height:${size}px;
-                background:rgba(255,255,255,0.6);border-radius:50%;
-                left:${x}px;top:${y}px;transform:scale(0);pointer-events:none;
-            `;
+        position:absolute;width:${size}px;height:${size}px;
+        background:rgba(255,255,255,0.6);border-radius:50%;
+        left:${x}px;top:${y}px;transform:scale(0);pointer-events:none;
+      `;
 
-      btn.style.position = "relative";
+      if (getComputedStyle(btn).position === "static") {
+        btn.style.position = "relative";
+      }
       btn.style.overflow = "hidden";
       btn.appendChild(ripple);
 
@@ -460,13 +516,15 @@ function initGsapAnimations() {
     isDown = false;
   };
 
-  document.addEventListener("wheel", handleWheel, { passive: true });
-  document.addEventListener("mousedown", handleMouseDown);
-  document.addEventListener("mousemove", handleMouseMove);
-  document.addEventListener("mouseup", handleMouseUp);
-  document.addEventListener("touchstart", handleMouseDown);
-  document.addEventListener("touchmove", handleMouseMove);
-  document.addEventListener("touchend", handleMouseUp);
+  if ($items.length) {
+    document.addEventListener("wheel", handleWheel, { passive: true });
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchstart", handleMouseDown);
+    document.addEventListener("touchmove", handleMouseMove);
+    document.addEventListener("touchend", handleMouseUp);
+  }
 
   // ===================================================================
   // =============== CARS VERTICAL SLIDER (sec-3) ======================
@@ -571,13 +629,13 @@ function initGsapAnimations() {
   }
 
   // ===================================================================
-  // ===================== JEWELS SLIDERS (SEC-4) ========================
+  // ===================== JEWELS SLIDERS (SEC-4) ======================
   // ===================================================================
 
   initJewelSliders();
 
   // ===================================================================
-  // ✅ ИСПРАВЛЕННОЕ МОДАЛЬНОЕ ОКНО ДРАГОЦЕННОСТЕЙ (SEC-4) ============
+  // ✅ МОДАЛЬНОЕ ОКНО ДРАГОЦЕННОСТЕЙ (SEC-4) ===========================
   // ===================================================================
 
   const jewelModal = document.getElementById("jewelModal");
@@ -592,6 +650,15 @@ function initGsapAnimations() {
 
     let currentModalIndex = 0;
     let currentModalSlides = [];
+
+    const showModalSlide = (index) => {
+      if (!currentModalSlides.length || !jewelImage) return;
+      const slide = currentModalSlides[index];
+      jewelImage.src = slide.full;
+      if (jewelCaption) {
+        jewelCaption.textContent = slide.caption || "";
+      }
+    };
 
     const openJewelModal = (slides, startIndex = 0) => {
       currentModalSlides = slides;
@@ -608,18 +675,13 @@ function initGsapAnimations() {
       document.body.style.overflow = "";
     };
 
-    const showModalSlide = (index) => {
-      if (!currentModalSlides.length) return;
-      const slide = currentModalSlides[index];
-      jewelImage.src = slide.full;
-      jewelCaption.textContent = slide.caption || "";
-    };
-
     // Привязываем клики на карточки драгоценностей
     document.querySelectorAll(".jewel-slide").forEach((slide) => {
       slide.addEventListener("click", (e) => {
         e.stopPropagation();
         const slider = slide.closest(".jewel-slider");
+        if (!slider) return;
+
         const allSlides = Array.from(slider.querySelectorAll(".jewel-slide"));
         const slideIndex = allSlides.indexOf(slide);
 
@@ -752,6 +814,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = slider.querySelector(".rarity-bg-control--prev");
     const nextBtn = slider.querySelector(".rarity-bg-control--next");
     const dotsContainer = slider.querySelector("[data-rarity-bg-dots]");
+    if (!dotsContainer) return;
+
     let current = 0;
 
     // Создаём точки
@@ -887,7 +951,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (slides[0]) slides[0].classList.add("rarity-slide--active");
 });
 
-// ===== PAINTINGS SLIDER (ПРОСТОЙ) =====
+// =======================================================================
+// ====================== PAINTINGS SLIDER (ПРОСТОЙ) ====================
+// =======================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector("[data-paintings-slider]");
@@ -897,6 +963,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots = Array.from(slider.querySelectorAll(".paintings-dot"));
   const prevBtn = slider.querySelector("[data-paintings-prev]");
   const nextBtn = slider.querySelector("[data-paintings-next]");
+
+  if (!slides.length) return;
 
   let current = 0;
 
@@ -941,96 +1009,174 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================
-  // КАРУСЕЛЬ ПРОЕКТОВ
-  // ============================
-  (function setupProjectsCarousel() {
-    const viewport = document.querySelector('#projects .projects-viewport');
-    if (!viewport) return;
+// КАРУСЕЛЬ ПРОЕКТОВ
+// ============================
 
-    const stage = viewport.querySelector('.projects-stage');
-    if (!stage) return;
+(function setupProjectsCarousel() {
+  const viewport = document.querySelector("#projects .projects-viewport");
+  if (!viewport) return;
 
-    const cards = Array.from(stage.querySelectorAll('.project-card'));
-    if (!cards.length) return;
+  const stage = viewport.querySelector(".projects-stage");
+  if (!stage) return;
 
-    const dotsWrap = viewport.querySelector('.pr-dots');
-    const prevBtn = viewport.querySelector('.prev');
-    const nextBtn = viewport.querySelector('.next');
+  const cards = Array.from(stage.querySelectorAll(".project-card"));
+  if (!cards.length) return;
 
-    let i = 0;
-    let timer = null;
-    const interval = +(viewport.dataset.interval || 5000);
-    const autoplay = viewport.dataset.autoplay !== 'false';
-    const reduce =
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dotsWrap = viewport.querySelector(".pr-dots");
+  const prevBtn = viewport.querySelector(".prev");
+  const nextBtn = viewport.querySelector(".next");
 
-    dotsWrap.innerHTML = cards.map(() => '<i></i>').join('');
-    const dots = Array.from(dotsWrap.children);
+  if (!dotsWrap) return;
 
-    const show = (idx) => {
-      i = (idx + cards.length) % cards.length;
-      cards.forEach((c, k) => c.classList.toggle('is-active', k === i));
-      dots.forEach((d, k) => d.classList.toggle('is-on', k === i));
-    };
+  let i = 0;
+  let timer = null;
+  const interval = +(viewport.dataset.interval || 5000);
+  const autoplay = viewport.dataset.autoplay !== "false";
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const next = () => show(i + 1);
-    const prev = () => show(i - 1);
+  dotsWrap.innerHTML = cards.map(() => "<i></i>").join("");
+  const dots = Array.from(dotsWrap.children);
 
-    const stop = () => {
-      if (timer) {
-        clearInterval(timer);
-        timer = null;
-      }
-    };
+  const show = (idx) => {
+    i = (idx + cards.length) % cards.length;
+    cards.forEach((c, k) => c.classList.toggle("is-active", k === i));
+    dots.forEach((d, k) => d.classList.toggle("is-on", k === i));
+  };
 
-    const play = () => {
-      if (reduce || !autoplay) return;
-      stop();
-      timer = setInterval(next, interval);
-    };
+  const next = () => show(i + 1);
+  const prev = () => show(i - 1);
 
-    show(0);
-    play();
+  const stop = () => {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  };
 
-    nextBtn &&
-      nextBtn.addEventListener('click', () => {
-        next();
-        play();
-      });
-    prevBtn &&
-      prevBtn.addEventListener('click', () => {
-        prev();
-        play();
-      });
+  const play = () => {
+    if (reduce || !autoplay) return;
+    stop();
+    timer = setInterval(next, interval);
+  };
 
-    dotsWrap.addEventListener('click', (e) => {
-      const idx = dots.indexOf(e.target);
-      if (idx > -1) {
-        show(idx);
-        play();
-      }
+  show(0);
+  play();
+
+  nextBtn &&
+    nextBtn.addEventListener("click", () => {
+      next();
+      play();
+    });
+  prevBtn &&
+    prevBtn.addEventListener("click", () => {
+      prev();
+      play();
     });
 
-    viewport.addEventListener('mouseenter', stop);
-    viewport.addEventListener('mouseleave', play);
-    viewport.addEventListener('focusin', stop);
-    viewport.addEventListener('focusout', play);
-
-    if (supportsIO) {
-      const sectionObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.target !== viewport) return;
-            if (entry.isIntersecting) {
-              play();
-            } else {
-              stop();
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      sectionObserver.observe(viewport);
+  dotsWrap.addEventListener("click", (e) => {
+    const idx = dots.indexOf(e.target);
+    if (idx > -1) {
+      show(idx);
+      play();
     }
-  })();
+  });
+
+  viewport.addEventListener("mouseenter", stop);
+  viewport.addEventListener("mouseleave", play);
+  viewport.addEventListener("focusin", stop);
+  viewport.addEventListener("focusout", play);
+
+  if (supportsIO()) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target !== viewport) return;
+          if (entry.isIntersecting) {
+            play();
+          } else {
+            stop();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    sectionObserver.observe(viewport);
+  }
+})();
+
+// =======================================================================
+// ====================== LAZY MEDIA LOADER ==============================
+// =======================================================================
+
+// Загружает изображения / видео / iframe, только когда они попадают в фокус экрана
+// Используются атрибуты:
+//   data-lazy-src     — основной src
+//   data-lazy-srcset  — srcset для <img>
+//   data-lazy-bg      — background-image для блоков
+
+function initLazyMedia() {
+  const lazyNodes = document.querySelectorAll(
+    "[data-lazy-src], [data-lazy-bg], [data-lazy-srcset]"
+  );
+  if (!lazyNodes.length) return;
+
+  if (!supportsIO()) {
+    // Фолбэк: без IO сразу расставим src
+    lazyNodes.forEach(loadLazyNode);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        loadLazyNode(el);
+        obs.unobserve(el);
+      });
+    },
+    {
+      root: null,
+      // немного заранее, чтобы не было моргания при прокрутке
+      rootMargin: "0px 0px 200px 0px",
+      threshold: 0.2,
+    }
+  );
+
+  lazyNodes.forEach((el) => observer.observe(el));
+}
+
+function loadLazyNode(el) {
+  const dataSrc = el.getAttribute("data-lazy-src");
+  const dataSrcset = el.getAttribute("data-lazy-srcset");
+  const dataBg = el.getAttribute("data-lazy-bg");
+
+  if (dataSrc) {
+    if (
+      el.tagName === "IMG" ||
+      el.tagName === "IFRAME" ||
+      el.tagName === "VIDEO"
+    ) {
+      el.src = dataSrc;
+    } else {
+      el.style.backgroundImage = `url("${dataSrc}")`;
+    }
+    el.removeAttribute("data-lazy-src");
+  }
+
+  if (dataSrcset && "srcset" in el) {
+    el.srcset = dataSrcset;
+    el.removeAttribute("data-lazy-srcset");
+  }
+
+  if (dataBg) {
+    el.style.backgroundImage = `url("${dataBg}")`;
+    el.removeAttribute("data-lazy-bg");
+  }
+
+  el.classList.add("is-lazy-loaded");
+}
+
+document.addEventListener("DOMContentLoaded", initLazyMedia);
