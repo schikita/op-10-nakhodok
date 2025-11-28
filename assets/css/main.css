@@ -2986,14 +2986,63 @@ p.section-description {
 
 /* ===== SECTION PAINTINGS (ПРОСТОЙ МАКЕТ) ===== */
 
+/* ===== SECTION PAINTINGS (ПРОСТОЙ МАКЕТ) ===== */
+
 .section-paintings {
   position: relative;
   overflow: hidden;
   padding: 60px 0;
 }
 
+/* Базовый контейнер фона */
 .section-paintings .bg {
-  opacity: 0.9;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Слои со слайдами */
+.bg--slideshow .bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: bgFade 24s infinite;
+}
+
+/* 3 фоновых фото, подставьте свои пути */
+.bg--slideshow .bg-slide--1 {
+  background-image: url('../img/bg-slider/01.JPG');
+  animation-delay: 0s;
+}
+
+.bg--slideshow .bg-slide--2 {
+  background-image: url('../img/bg-slider/02.JPG');
+  animation-delay: 8s;
+}
+
+.bg--slideshow .bg-slide--3 {
+  background-image: url('../img/bg-slider/03.JPG');
+  animation-delay: 16s;
+}
+
+
+.bg--slideshow .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, #3c0764bb 0%, #020617b6 55%, #0b1120af 100%);
+  opacity: 0.85;
+}
+
+/* Анимация "выцветания" (плавная смена слайдов) */
+@keyframes bgFade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .paintings-container {
@@ -3003,6 +3052,7 @@ p.section-description {
   margin: 0 auto;
   padding: 0 24px;
 }
+
 
 /* ===== СЛАЙДЕР СВЕРХУ ===== */
 
@@ -3869,4 +3919,120 @@ a.yt-inline-link {
     border: 1px solid rgba(255,255,255,0.18);
     box-shadow: 0 0 25px rgba(0,0,0,0.5);
     object-fit: cover;
+}
+
+/* Базовое позиционирование фона для секции 4 */
+.section-4 .bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Слои с фоновыми изображениями */
+.section-4 .bg--slideshow .bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: bgFadeJewels 24s infinite;
+}
+
+/* Укажи свои пути к фоновым фото */
+.section-4 .bg--jewels .bg-slide--1 {
+  background-image: url('../img/bg-slider/04.JPG');
+  animation-delay: 0s;
+}
+
+.section-4 .bg--jewels .bg-slide--2 {
+  background-image: url('../img/bg-slider/05.JPG');
+  animation-delay: 8s;
+}
+
+.section-4 .bg--jewels .bg-slide--3 {
+  background-image: url('../img/bg-slider/06.JPG');
+  animation-delay: 16s;
+}
+
+/* Градиент поверх фото, чтобы текст читался */
+.section-4 .bg--slideshow .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, rgba(60, 7, 100, 0.7) 0%, rgba(2, 6, 23, 0.67) 55%, rgba(11, 17, 32, 0.69) 100%);
+  opacity: 0.85;
+}
+
+/* Анимация плавной смены фото */
+@keyframes bgFadeJewels {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Контент поверх фона */
+.section-4 .content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Базовое позиционирование фона для секции 2 */
+.section-2 .bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Слои с фоновыми изображениями */
+.section-2 .bg--slideshow .bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: bgFadeAnimals 24s infinite;
+}
+
+/* Пути к фоновым фото */
+.section-2 .bg--animals .bg-slide--1 {
+  background-image: url('../img/bg-slider/09.JPG');
+  animation-delay: 0s;
+}
+
+.section-2 .bg--animals .bg-slide--2 {
+  background-image: url('../img/bg-slider/08.JPG');
+  animation-delay: 8s;
+}
+
+.section-2 .bg--animals .bg-slide--3 {
+  background-image: url('../img/bg-slider/07.JPG');
+  animation-delay: 16s;
+}
+
+/* Градиент поверх фото для читаемости текста */
+.section-2 .bg--slideshow .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, rgba(4, 19, 37, 0.75) 0%, rgba(8, 44, 70, 0.75) 55%, rgba(11, 58, 86, 0.75) 100%);
+  opacity: 0.85;
+}
+
+/* Анимация плавной смены фото */
+@keyframes bgFadeAnimals {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Контент поверх фона */
+.section-2 .content {
+  position: relative;
+  z-index: 1;
 }
