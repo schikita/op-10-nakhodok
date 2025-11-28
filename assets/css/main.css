@@ -4036,3 +4036,61 @@ a.yt-inline-link {
   position: relative;
   z-index: 1;
 }
+
+/* Базовое позиционирование фона для секции 14 */
+.section-icon .bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Слои с фоновыми изображениями */
+.section-icon .bg--slideshow .bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: bgFadeRarities 24s infinite;
+}
+
+/* Пути к фоновым фото */
+.section-icon .bg--rarities .bg-slide--1 {
+  background-image: url('../img/bg-slider/11.jpg');
+  animation-delay: 0s;
+}
+
+.section-icon .bg--rarities .bg-slide--2 {
+  background-image: url('../img/bg-slider/12.jpg');
+  animation-delay: 8s;
+}
+
+.section-icon .bg--rarities .bg-slide--3 {
+  background-image: url('../img/bg-slider/13.jpg');
+  animation-delay: 16s;
+}
+
+/* Сильный затемняющий градиент поверх фото */
+.section-icon .bg--slideshow .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0, rgba(124, 45, 18, 0.85) 0%, rgba(2, 6, 23, 0.9) 55%, rgba(2, 6, 23, 0.9) 100%);
+  opacity: 1;
+}
+
+/* Анимация плавной смены фото */
+@keyframes bgFadeRarities {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Контент поверх фона */
+.section-icon .icon-container {
+  position: relative;
+  z-index: 1;
+}
