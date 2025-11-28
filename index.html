@@ -206,7 +206,7 @@
               </div>
             </div>
 
-              <div class="carousel-item">
+            <div class="carousel-item">
               <div class="carousel-box">
                 <div class="title">Редчайшая<br>швейная машинка</div>
                 <div class="num">08</div>
@@ -232,10 +232,10 @@
               </div>
             </div>
 
-            
-                         
 
-          
+
+
+
           </div>
 
           <!-- Вертикальный текст слева, как в оригинале -->
@@ -484,7 +484,15 @@
 
     <!-- SECTION 4: Драгоценности -->
     <section id="sec-4" class="section section-4 section-jewels">
-      <div class="bg" style="background: linear-gradient(135deg, #24133e 0%, #14233d 100%);"></div>
+      <!-- ВИДЕО-ФОН -->
+      <div class="bg bg--video">
+        <video class="bg-video" autoplay muted loop playsinline>
+          <!-- замени путь на свой файл -->
+          <source src="./assets/videos/bg-jant.mp4" type="video/mp4" />
+        </video>
+        <!-- затемняющий градиент поверх видео -->
+        <div class="bg-overlay"></div>
+      </div>
 
       <div class="content jewels-content">
         <div class="section-number">03</div>
@@ -538,7 +546,7 @@
 
             <div class="jewel-body">
               <h3 class="jewel-title">Эксклюзивная посуда на 1,3 миллиона</h3>
-              <p class="jewel-text">               
+              <p class="jewel-text">
                 Польский перевозчик хотел незаконно ввезти на территорию ЕАЭС из Чехии партию эксклюзивной посуды
                 известных брендов, занизив ее стоимость в 30 раз. Инцидент произошел в марте 2023 года в пункте пропуска
                 «Козловичи».
@@ -649,7 +657,7 @@
       <div class="parallax-element parallax-3"></div>
     </section>
 
-    <!-- ✅ ИСПРАВЛЕННОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ФОТОГРАФИЙ ДРАГОЦЕННОСТЕЙ -->
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТОГРАФИЙ ДРАГОЦЕННОСТЕЙ -->
     <div id="jewelModal" class="jewel-modal" aria-hidden="true">
       <div class="jewel-modal__backdrop" data-jewel-modal-close></div>
       <div class="jewel-modal__dialog" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
@@ -725,6 +733,18 @@
         </article>
       </div>
     </section>
+
+    <section class="negotiations-section">
+      <div class="negotiations-container">
+        <div class="negotiations-video">
+          <video controls playsinline preload="none" poster="./assets/img/negotiations.jpg">
+            <source data-lazy-src="./assets/videos/raritet.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+    </section>
+
 
     <!-- SECTION: КАРТИНЫ, ИКОНЫ И ЛИТОГРАФИЯ (СЛАЙДЕР СВЕРХУ, ТЕКСТ СНИЗУ) -->
     <section id="sec-paintings" class="section section-paintings">

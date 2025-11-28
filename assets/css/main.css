@@ -1549,9 +1549,11 @@ p.section-description {
 
 /* ================= SECTION 4: ДРАГОЦЕННОСТИ ================= */
 
-.section-jewels .content {
-  max-width: 980px;
-  text-align: left;
+.section-jewels {
+  position: relative;
+  overflow: hidden;
+  color: #f9fafb;
+  padding: 80px 0; /* как у других секций, чтобы было "по центру" по вертикали внутри экрана */
 }
 
 .jewels-grid {
@@ -1705,6 +1707,46 @@ p.section-description {
   height: 100%;
   object-fit: cover;
 }
+
+.section-jewels {
+  position: relative;
+  overflow: hidden;
+  color: #f9fafb; /* чтобы текст читался на фоне видео */
+}
+
+/* Общий контейнер фона */
+.section-jewels .bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Видео */
+.section-jewels .bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45); /* затемнение базовое */
+}
+
+/* Дополнительный градиент-оверлей (можно подстроить цвета) */
+.section-jewels .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.6), transparent 55%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.9));
+}
+
+.section-jewels .content {
+  max-width: 980px;
+  margin: 0 auto;      /* центровка блока по горизонтали */
+  text-align: left;
+  padding: 0 20px;     /* небольшой внутренний отступ по бокам для адаптива */
+}
+
+
 
 /* === JEWEL SLIDER CONTROLS ===================================== */
 
@@ -3720,4 +3762,111 @@ a.yt-inline-link {
 
 .section-header {
   text-align: center;
+}
+
+/* === Переговоры === */
+
+.negotiations-section {
+  padding: 80px 0;
+  /* затемнённый фон */
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url('../img/bg-vid.jpg') center center / cover no-repeat;
+  color: #f9fafb; /* чтобы текст был читаемым */
+}
+
+
+.negotiations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+.negotiations-text {
+    background: rgba(0,0,0,0.65);
+    padding: 40px 40px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(4px);
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.negotiations-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.negotiations-text p {
+    font-size: 20px;
+    line-height: 1.65;
+    font-weight: 300;
+}
+
+.negotiations-video {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.negotiations-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  object-fit: cover;
+}
+/* Адаптив */
+@media (max-width: 700px) {
+    .negotiations-text h2 {
+        font-size: 30px;
+    }
+
+    .negotiations-text p {
+        font-size: 17px;
+    }
+
+    .negotiations-text {
+        padding: 28px;
+    }
+
+    .negotiations-video video {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+    }
+}
+
+/* — Расширяем ТОЛЬКО страницу переговоров — */
+.page.negotiations-section {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;          /* секция на всю ширину окна */
+}
+
+/* Внутри уже аккуратный контейнер, чтобы контент не прилипал к краям */
+.page.negotiations-section .negotiations-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Видео во всю ширину этого контейнера */
+.page.negotiations-section .negotiations-video video {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    object-fit: cover;
 }

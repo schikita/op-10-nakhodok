@@ -1148,6 +1148,84 @@ function initLazyMedia() {
   lazyNodes.forEach((el) => observer.observe(el));
 }
 
+// =======================================================================
+// ==================== NEGOTIATIONS VIDEO PLAYER ========================
+// =======================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".negotiations-section");
+  if (!section) return;
+
+  const videoWrapper = section.querySelector(".negotiations-video");
+  const video = videoWrapper?.querySelector("video");
+  if (!video) return;
+
+  const source = video.querySelector("source[data-lazy-src]");
+  let srcLoaded =
+    !source || Boolean(source.getAttribute("src")); // вдруг уже проставлен
+
+  // Лёгкая анимация появления блока с видео
+  if (typeof gsap !== "undefined" && videoWrapper) {
+    gsap.from(videoWrapper, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 70%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 40,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+  }
+
+  // Если IntersectionObserver недоступен — просто сразу подставим src и выйдем
+  if (!supportsIO()) {
+    if (source && !srcLoaded) {
+      source.src = source.dataset.lazySrc || "";
+      source.removeAttribute("data-lazy-src");
+      video.load();
+    }
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.target !== section) return;
+
+        if (entry.isIntersecting) {
+          // Секция в фокусе экрана
+          if (source && !srcLoaded) {
+            const realSrc = source.dataset.lazySrc;
+            if (realSrc) {
+              source.src = realSrc;
+              source.removeAttribute("data-lazy-src");
+              video.load();
+              srcLoaded = true;
+            }
+          }
+
+          // Пытаемся автозапустить (без звука, чтобы не блокировали браузеры)
+          video.muted = true;
+          video.play().catch(() => {
+            // молча игнорируем, если браузер запретил autoplay
+          });
+        } else {
+          // Секция ушла с экрана — ставим видео на паузу
+          video.pause();
+        }
+      });
+    },
+    {
+      threshold: 0.6, // примерно 60% секции в кадре считаем "фокусом"
+    }
+  );
+
+  observer.observe(section);
+});
+
+
 function loadLazyNode(el) {
   const dataSrc = el.getAttribute("data-lazy-src");
   const dataSrcset = el.getAttribute("data-lazy-srcset");
