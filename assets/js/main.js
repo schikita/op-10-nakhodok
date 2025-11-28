@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const txt = backToTop.querySelector(".back-to-top-text");
     if (txt) {
-      txt.textContent = "Наверх";
+      txt.textContent = "";
     }
   }
 });
