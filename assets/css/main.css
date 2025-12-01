@@ -856,34 +856,14 @@ p.section-description {
 
 /* акцент на авторе */
 .intro-author {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 2px 12px 3px 10px;
-  border-radius: 999px;
-  background: radial-gradient(circle at top left, #0b1120 0%, #020617 70%);
-  border: 1px solid rgba(249, 115, 22, 0.9);
-  color: #fefce8;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: #f97316; /* акцентный оранжевый */
+  font-weight: 600;
   text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease,
-    color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .intro-author:hover {
-  background: linear-gradient(135deg, #f97316, #fb923c);
-  border-color: rgba(251, 146, 60, 1);
-  color: #0b1120;
-  transform: translateY(-1px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+  color: #fb923c; /* чуть ярче при наведении */
 }
 
 .intro-author:active {
