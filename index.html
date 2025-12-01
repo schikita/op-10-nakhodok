@@ -719,31 +719,12 @@
     <!-- SECTION 12: Редчайшая швейная машинка и бивни мамонта -->
     <section id="sec-12" class="section section-12 section-rarity section-rarity--machine">
 
-      <!-- Фоновый слайдер с выцветанием -->
-      <div class="rarity-bg-slider" data-rarity-bg-slider>
-        <div class="rarity-bg-slide is-active">
-          <img src="./assets/img/books/02.jpg" loading="lazy"
-            alt="Старинная швейная машинка и книги на столе в багаже туриста" />
-        </div>
-        <div class="rarity-bg-slide">
-          <img src="./assets/img/books/01.jpg" loading="lazy"
-            alt="Коробка со старинными книгами, задержанными на границе" />
-        </div>
-        <div class="rarity-bg-slide">
-          <img src="./assets/img/books/03.jpg" loading="lazy"
-            alt="Фрагменты бивня мамонта, изъятые у туриста на таможне" />
-        </div>
-
-        <!-- Кнопки переключения слайдов -->
-        <button class="rarity-bg-control rarity-bg-control--prev" type="button" aria-label="Предыдущее фото">
-          ‹
-        </button>
-        <button class="rarity-bg-control rarity-bg-control--next" type="button" aria-label="Следующее фото">
-          ›
-        </button>
-
-        <!-- Точки-состояния -->
-        <div class="rarity-bg-dots" data-rarity-bg-dots></div>
+      <!-- Фоновое видео -->
+      <div class="bg bg--video">
+        <video autoplay muted loop playsinline>
+          <source src="./assets/videos/zinger.MP4" type="video/mp4" />
+        </video>
+        <div class="bg-overlay"></div>
       </div>
 
       <!-- Контент: компактная карточка справа внизу -->
@@ -802,6 +783,35 @@
       </div>
 
       <div class="paintings-container">
+        <div class="paintings-text-section">
+          <div style="padding-bottom: 30px;">
+
+          </div>
+
+          <h2 class="section-title rarity-title">Живописные картины, иконы и литография</h2>
+
+          <p class="rarity-body-text">
+            Культурные ценности намеревались незаконно ввезти из Польши через пункт пропуска «Брест» на территорию ЕАЭС
+            граждане Беларуси.
+          </p>
+
+          <p class="rarity-body-text">
+            Ценности нарушители перемещали через границу по просьбе третьих лиц под видом товаров для личного
+            пользования. Водитель автомобиля вез 24 единицы: портреты, живописные картины, иконы, литографию, эскизы,
+            каминные часы, подсвечники, статуэтки и другое.
+          </p>
+
+          <p class="rarity-body-text">
+            А его пассажирка - статуэтку «Самурай на лошади». Эксперты Таможенной лаборатории подтвердили, что все эти
+            предметы относятся к категории культурных ценностей.
+          </p>
+
+          <p class="split-story__note">
+            Их общая оценочная стоимость - примерно 85 тысяч рублей.
+          </p>
+        </div>
+
+
         <div class="paintings-slider-section">
           <div class="paintings-slider-wrapper" data-paintings-slider>
             <div class="paintings-slider-viewport">
@@ -835,33 +845,9 @@
           </div>
         </div>
 
-        <div class="paintings-text-section">
-          <div style="padding-bottom: 30px;">
-            <div class="icon-label">Раритеты</div>
-          </div>
 
-          <h2 class="section-title rarity-title">Живописные картины, иконы и литография</h2>
 
-          <p class="rarity-body-text">
-            Культурные ценности намеревались незаконно ввезти из Польши через пункт пропуска «Брест» на территорию ЕАЭС
-            граждане Беларуси.
-          </p>
 
-          <p class="rarity-body-text">
-            Ценности нарушители перемещали через границу по просьбе третьих лиц под видом товаров для личного
-            пользования. Водитель автомобиля вез 24 единицы: портреты, живописные картины, иконы, литографию, эскизы,
-            каминные часы, подсвечники, статуэтки и другое.
-          </p>
-
-          <p class="rarity-body-text">
-            А его пассажирка - статуэтку «Самурай на лошади». Эксперты Таможенной лаборатории подтвердили, что все эти
-            предметы относятся к категории культурных ценностей.
-          </p>
-
-          <p class="split-story__note">
-            Их общая оценочная стоимость - примерно 85 тысяч рублей.
-          </p>
-        </div>
       </div>
     </section>
 
@@ -882,7 +868,7 @@
       <div class="icon-container">
         <!-- ЛЕВАЯ ЧАСТЬ: ТЕКСТ -->
         <div class="icon-text">
-          <div class="icon-label">Раритеты</div>
+
           <h2 class="section-title rarity-title">Рукописная икона XIX века</h2>
 
           <p class="rarity-body-text">
@@ -899,8 +885,7 @@
         <div class="icon-image-wrapper">
           <div class="icon-image-card">
             <img src="./assets/img/rarities/icon-feodorovskaya.jpg" loading="lazy"
-              alt="Рукописная икона Богоматери Феодоровской XIX века" />
-            <p class="icon-caption">Рукописная икона Богоматери Феодоровской, XIX век</p>
+              alt="Рукописная икона Богоматери Феодоровской XIX века" />           
           </div>
         </div>
       </div>
