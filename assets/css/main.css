@@ -3924,21 +3924,13 @@ a.yt-inline-link {
   animation: bgFadeJewels 24s infinite;
 }
 
-/* Укажи свои пути к фоновым фото */
-.section-4 .bg--jewels .bg-slide--1 {
-  background-image: url('../img/bg-slider/04.JPG');
-  animation-delay: 0s;
+.bg--jewels {
+  background-image: url('../img/first-collage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.section-4 .bg--jewels .bg-slide--2 {
-  background-image: url('../img/bg-slider/05.JPG');
-  animation-delay: 8s;
-}
-
-.section-4 .bg--jewels .bg-slide--3 {
-  background-image: url('../img/bg-slider/06.JPG');
-  animation-delay: 16s;
-}
 
 /* Градиент поверх фото, чтобы текст читался */
 .section-4 .bg--slideshow .bg-overlay {
