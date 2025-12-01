@@ -470,6 +470,7 @@ a.nav-link {
 
 /* Номер секции */
 .section-number {
+  display: none;
   position: absolute;
   top: 50%;
   left: 32px;
