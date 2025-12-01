@@ -1153,76 +1153,80 @@ function initLazyMedia() {
 // =======================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector(".negotiations-section");
-  if (!section) return;
+  // Список всех секций, которые нужно обслуживать
+  const sections = document.querySelectorAll(".negotiations-section, .negotiations-section-1");
+  if (!sections.length) return;
 
-  const videoWrapper = section.querySelector(".negotiations-video");
-  const video = videoWrapper?.querySelector("video");
-  if (!video) return;
+  sections.forEach(initVideoSection);
 
-  const source = video.querySelector("source[data-lazy-src]");
-  let srcLoaded =
-    !source || Boolean(source.getAttribute("src")); // вдруг уже проставлен
+  // -----------------------------
+  // Инициализация одной секции
+  // -----------------------------
+  function initVideoSection(section) {
+    const videoWrapper = section.querySelector(".negotiations-video");
+    const video = videoWrapper?.querySelector("video");
 
-  // Лёгкая анимация появления блока с видео
-  if (typeof gsap !== "undefined" && videoWrapper) {
-    gsap.from(videoWrapper, {
-      scrollTrigger: {
-        trigger: section,
-        start: "top 70%",
-        toggleActions: "play none none reverse",
-      },
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      ease: "power3.out",
-    });
-  }
+    if (!video) return;
 
-  // Если IntersectionObserver недоступен — просто сразу подставим src и выйдем
-  if (!supportsIO()) {
-    if (source && !srcLoaded) {
-      source.src = source.dataset.lazySrc || "";
-      source.removeAttribute("data-lazy-src");
-      video.load();
-    }
-    return;
-  }
+    const source = video.querySelector("source[data-lazy-src]");
+    let srcLoaded = !source || Boolean(source.getAttribute("src"));
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.target !== section) return;
-
-        if (entry.isIntersecting) {
-          // Секция в фокусе экрана
-          if (source && !srcLoaded) {
-            const realSrc = source.dataset.lazySrc;
-            if (realSrc) {
-              source.src = realSrc;
-              source.removeAttribute("data-lazy-src");
-              video.load();
-              srcLoaded = true;
-            }
-          }
-
-          // Пытаемся автозапустить (без звука, чтобы не блокировали браузеры)
-          video.muted = true;
-          video.play().catch(() => {
-            // молча игнорируем, если браузер запретил autoplay
-          });
-        } else {
-          // Секция ушла с экрана — ставим видео на паузу
-          video.pause();
-        }
+    // Анимация появления блока
+    if (typeof gsap !== "undefined" && videoWrapper) {
+      gsap.from(videoWrapper, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power3.out",
       });
-    },
-    {
-      threshold: 0.6, // примерно 60% секции в кадре считаем "фокусом"
     }
-  );
 
-  observer.observe(section);
+    // Если IntersectionObserver недоступен
+    if (!supportsIO()) {
+      if (source && !srcLoaded) {
+        source.src = source.dataset.lazySrc || "";
+        source.removeAttribute("data-lazy-src");
+        video.load();
+      }
+      return;
+    }
+
+    // Обсервер для секции
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target !== section) return;
+
+          if (entry.isIntersecting) {
+            // В фокусе
+            if (source && !srcLoaded) {
+              const realSrc = source.dataset.lazySrc;
+              if (realSrc) {
+                source.src = realSrc;
+                source.removeAttribute("data-lazy-src");
+                video.load();
+                srcLoaded = true;
+              }
+            }
+
+            video.muted = true;
+            video.play().catch(() => {});
+          } else {
+            // Вне экрана
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    observer.observe(section);
+  }
 });
 
 

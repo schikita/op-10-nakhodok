@@ -3808,6 +3808,11 @@ a.yt-inline-link {
   color: #f9fafb; /* чтобы текст был читаемым */
 }
 
+.negotiations-section-1 {
+  padding: 80px 0;
+  
+}
+
 
 .negotiations-container {
   max-width: 1200px;
